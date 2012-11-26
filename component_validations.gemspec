@@ -23,5 +23,6 @@ accepts_nested_attributes.
   s.test_files    = Dir["spec/**/*"]
   s.require_paths = ["lib"]
 
+  s.add_dependency "activemodel", "~> 3.0"
   s.add_development_dependency "rspec", "~> 2.12.0"
 end
