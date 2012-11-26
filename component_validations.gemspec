@@ -22,4 +22,6 @@ accepts_nested_attributes.
   s.files         = Dir["lib/**/*"] + ["LICENSE.md", "Rakefile", "README.md"]
   s.test_files    = Dir["spec/**/*"]
   s.require_paths = ["lib"]
+
+  s.add_development_dependency "rspec", "~> 2.12.0"
 end
