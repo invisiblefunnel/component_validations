@@ -1,15 +1,17 @@
-require File.expand_path("../user", __FILE__)
-
 class Signup
   include ActiveModel::Validations
 
   # Account validations
-  validates_presence_of :account_name, :account_subdomain
-  validates_format_of :account_subdomain, :with => /\A[a-z\d]+(-[a-z\d]+)*\z/i
+  validates_with ComponentValidations::ComponentValidator, :model_class => Account, :mapping => {
+    :name => :account_name,
+    :subdomain => :account_subdomain
+  }
 
   # User validations
-  validates_presence_of :user_name, :user_email
-  validates_format_of :user_email, :with => /\A[^@]+@[^@]+\z/
+  validates_with ComponentValidations::ComponentValidator, :model_class => User, :mapping => {
+    :name => :user_name,
+    :email => :user_email
+  }
 
   # Account attributes
   attr_accessor :account_name, :account_subdomain
